@@ -7,4 +7,4 @@
         db_delete('user', $id);
     }
 
-    header('location: /back.php?do=user');
+    to('/back.php?do=user');
