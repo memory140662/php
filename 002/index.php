@@ -46,9 +46,9 @@
 						<?php if($is_login): ?>
 							歡迎，<?= $user ?>
 							<?php if($is_admin): ?>
-								<a style="border: 1px solid black;" href="./back.php">管理</a>|
+								<a href="./back.php">管理</a>|
 							<?php endif ?>
-							<a style="border: 1px solid black;" href="/api/logout.php">登出</a>
+							<a href="/api/logout.php">登出</a>
 						<?php else: ?>
 							<a href="?do=login">會員登入</a>
 						<?php endif ?>

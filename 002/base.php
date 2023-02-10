@@ -150,13 +150,11 @@
 
 	if (!isset($_SESSION['total_' . $today])) {
 		$total = db_get('total', [ 'date' => $today ]);
+        
+        $total['date'] = $today;
+        $total['total'] = ($total['total'] ?? 0) + 1;
 
-		if ($total) {
-			$total['total'] += 1;
-			db_save('total', $total);
-		} else {
-			db_save('total', [ 'date' =>  $today, 'total' => 1 ]);
-		}
+        db_save('total', $total);
 
 		$_SESSION['total_' . $today] = true;
 	}
