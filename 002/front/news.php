@@ -11,6 +11,12 @@
             $(target).find('div').css('white-space', 'nowrap');
         }
     }
+
+    $(function() {
+        $('a[href]').click(function(e) {
+            e.stopPropagation();
+        })
+    });
 </script>
 <style>
     #news td {
