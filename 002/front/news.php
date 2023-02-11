@@ -11,18 +11,7 @@
             $(target).find('div').css('white-space', 'nowrap');
         }
     }
-
-    $(function() {
-        $('a[href]').click(function(e) {
-            e.stopPropagation();
-        })
-    });
 </script>
-<style>
-    #news td {
-        vertical-align: top;
-    }
-</style>
 <fieldset>
     <legend>
         目前位置：首頁 ＞ 最新文章區
@@ -38,9 +27,9 @@
         </thead>
         <tbody>
             <?php foreach($news as $new): ?>
-                <tr onclick="showDetail(this);">
+                <tr>
                     <td><?= $new['title'] ?></td>
-                    <td><div style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 200px"><?= $new['text'] ?></div></td>
+                    <td onclick="showDetail(this);"><div style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 200px"><?= $new['text'] ?></div></td>
                     <td> 
                         <?php if($is_login): ?>
                             <?php if(db_count('good', [ 'news' => $new['id'], 'user' => $_SESSION['user'] ]) > 0): ?>
